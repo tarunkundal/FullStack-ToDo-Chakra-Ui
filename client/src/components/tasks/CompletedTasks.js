@@ -18,7 +18,7 @@ const CompletedTasks = () => {
       py="2"
       bg={useColorModeValue("white", "gray.600")}
       px="1"
-      rounded="xl"
+      rounded="md"
       boxShadow="xl"
     >
       <Heading color="teal.400" textAlign="center">

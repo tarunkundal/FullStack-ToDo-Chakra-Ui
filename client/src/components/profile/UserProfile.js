@@ -1,4 +1,4 @@
-import { EmailIcon } from "@chakra-ui/icons";
+import { EmailIcon, InfoIcon, PhoneIcon } from "@chakra-ui/icons";
 import {
   Heading,
   Avatar,
@@ -78,36 +78,60 @@ const UserProfile = () => {
             <EmailIcon /> {user.email}
           </Text>
 
-          <Flex
+          <Stack
             direction="column"
-            w="50%"
+            w="60%"
             px="1"
             fontSize="14px"
             textAlign="left"
-          >
-            <Text fontWeight={"medium"}>{user.name}</Text>
-            <Text>{user.bio}</Text>
-          </Flex>
-
-          <Text fontWeight={"bold"}>Your Tasks</Text>
-          <Stack
-            fontSize="14px"
-            fontWeight={"medium"}
             color={useColorModeValue("gray.600", "gray.400")}
-            px={3}
-            direction={"row"}
-            textAlign={"left"}
-            justifyContent={"space-around"}
           >
-            <Box>
-              <Text>Total Tasks : {tasks.length} </Text>
-              <Text>Active Tasks : {activeTasks.length} </Text>
-            </Box>
-            <Box>
-              <Text>Completed Tasks : {completedTasks.length} </Text>
-              <Text>Over Due Tasks : {OverDueTasks.length} </Text>
-            </Box>
+            <Text fontWeight={"medium"}>
+              <Flex alignItems="center">
+                <i
+                  className="fa-solid fa-user"
+                  style={{ marginRight: "9px" }}
+                />
+                {user.name}
+              </Flex>
+            </Text>
+
+            <Text>
+              <Flex alignItems="center">
+                <InfoIcon mr="2" />
+                {user.bio}
+              </Flex>
+            </Text>
+
+            <Text>
+              <Flex alignItems="center">
+                <PhoneIcon mr="2" />
+                {user.phonenumber}
+              </Flex>
+            </Text>
           </Stack>
+
+          <Flex direction={"column"}>
+            <Text fontWeight={"bold"}>Your Tasks</Text>
+            <Stack
+              fontSize="14px"
+              fontWeight={"medium"}
+              color={useColorModeValue("gray.600", "gray.400")}
+              px={3}
+              direction={"row"}
+              textAlign={"left"}
+              justifyContent={"space-around"}
+            >
+              <Box>
+                <Text>Total Tasks : {tasks.length} </Text>
+                <Text>Active Tasks : {activeTasks.length} </Text>
+              </Box>
+              <Box>
+                <Text>Completed Tasks : {completedTasks.length} </Text>
+                <Text>Over Due Tasks : {OverDueTasks.length} </Text>
+              </Box>
+            </Stack>
+          </Flex>
 
           <Stack mt={8} direction={"row"} spacing={4}>
             <Button

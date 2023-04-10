@@ -14,6 +14,8 @@ import {
   Textarea,
   Spinner,
   useToast,
+  Flex,
+  CloseButton,
 } from "@chakra-ui/react";
 import { useStore } from "../../store/authStore/AuthContextProvider";
 import { useState } from "react";
@@ -85,16 +87,19 @@ const EditUserProfile = (props) => {
       p={4}
       margin={"auto"}
     >
-      <Stack direction={["column", "row"]} spacing={2}>
-        <Center>
-          <WrapItem>
-            <Avatar size={{ base: "sm", md: "lg" }} name={user.name} />
-          </WrapItem>
-        </Center>
-        <Center>
-          <Text fontWeight="medium">{user.email}</Text>
-        </Center>
-      </Stack>
+      <Flex justifyContent="space-between">
+        <Stack direction="row" spacing={2}>
+          <Center>
+            <WrapItem>
+              <Avatar size={{ base: "lg", md: "lg" }} name={user.name} />
+            </WrapItem>
+          </Center>
+          <Center>
+            <Text fontWeight="medium">{user.email}</Text>
+          </Center>
+        </Stack>
+        <CloseButton onClick={props.onClose} />
+      </Flex>
 
       <form onSubmit={updateProfileHandler}>
         <FormControl id="userName">

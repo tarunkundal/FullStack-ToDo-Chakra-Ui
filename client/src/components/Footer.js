@@ -32,25 +32,29 @@ const Footer = () => {
         align={{ base: "center", md: "center" }}
       >
         <Image src={logo} alt="logo" w="50px" />
-        <Text>© 2023 Taskify.com All rights reserved</Text>
+
+        <Text fontWeight="medium">© 2023 Taskify.com All rights reserved</Text>
         <Stack direction={"row"} spacing={6}>
           <IconButton
             size={"sm"}
             as="a"
             href={"https://www.youtube.com"}
             icon={<FaYoutube />}
+            target="blank"
           />
           <IconButton
             icon={<FaTwitter />}
             as="a"
             size={"sm"}
             href={"https://www.twitter.com"}
+            target="blank"
           />
           <IconButton
             icon={<FaInstagram />}
             size={"sm"}
             as={"a"}
             href={"https://www.instagram.com"}
+            target="blank"
           />
         </Stack>
       </Container>

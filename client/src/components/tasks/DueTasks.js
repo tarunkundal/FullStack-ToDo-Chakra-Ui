@@ -18,7 +18,7 @@ const DueTasks = () => {
       py="2"
       bg={useColorModeValue("white", "gray.600")}
       px="1"
-      rounded="xl"
+      rounded="md"
       boxShadow="xl"
     >
       <Heading textAlign="center" color="red.400">
