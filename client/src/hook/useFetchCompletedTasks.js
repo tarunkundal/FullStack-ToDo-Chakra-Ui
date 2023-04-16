@@ -1,4 +1,6 @@
-// UseFetchCompletedTasks is used to fetch the tasks which are completed
+/**
+ * UseFetchCompletedTasks is used to fetch the tasks which are completed
+ */
 import { useTaskStore } from "../store/tasks/TaskProvider";
 
 const useFetchCompletedTasks = () => {

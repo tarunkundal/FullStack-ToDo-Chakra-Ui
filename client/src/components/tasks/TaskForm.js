@@ -2,10 +2,10 @@ import {
   Button,
   FormControl,
   FormLabel,
+  Heading,
   Input,
   Spinner,
   Stack,
-  Text,
   Tooltip,
   useColorModeValue,
   useToast,
@@ -19,14 +19,21 @@ import axios from "axios";
 const TaskForm = (props) => {
   const toast = useToast();
   const { user } = useStore();
-  const { addTask, updateTask } = useTaskStore();
-  const [enteredTask, setEnteredTask] = useState("");
-  const [enteredDescription, setEnteredDescription] = useState("");
-  const [duedate, setDuedate] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const { addTask, updateTask, tasks } = useTaskStore();
 
+  // for task to be updated
   const isUpdate = props.isUpdate;
   const selectedTaskId = props.selectedTaskId;
+  const taskToBeUpdated = tasks.find((tsk) => tsk.id === selectedTaskId);
+
+  const [enteredTask, setEnteredTask] = useState(
+    isUpdate ? taskToBeUpdated.title : ""
+  );
+  const [enteredDescription, setEnteredDescription] = useState(
+    isUpdate ? taskToBeUpdated.description : ""
+  );
+  const [duedate, setDuedate] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // new task
   const submitTaskHandler = async (e) => {
@@ -121,15 +128,15 @@ const TaskForm = (props) => {
         spacing={{ base: "2", md: "4" }}
         p="5"
       >
-        <Text
+        <Heading
           textAlign={"center"}
-          color="skyblue"
+          color="primary"
           fontSize={{ base: "2xl", md: "3xl" }}
           fontWeight={"medium"}
           paddingBottom={2}
         >
           {isUpdate ? "Update Task" : "Create Task"}
-        </Text>
+        </Heading>
 
         <form onSubmit={isUpdate ? updateTaskHandler : submitTaskHandler}>
           <FormControl id="Task" isRequired>
@@ -173,7 +180,7 @@ const TaskForm = (props) => {
             </Tooltip>
           </FormControl>
 
-          <Stack direction={"row"} py={2}>
+          <Stack direction={"row"} pt={4}>
             <Button w="50%" onClick={props.onClose} colorScheme="red">
               {isUpdate ? "Cancle Update" : "Cancle"}
             </Button>

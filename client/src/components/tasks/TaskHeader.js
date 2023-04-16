@@ -1,8 +1,12 @@
-import { Button, Heading, Stack, Text } from "@chakra-ui/react";
+import React from "react";
+import { Button, Flex, Heading, Stack, Text, Tooltip } from "@chakra-ui/react";
 import { useStore } from "../../store/authStore/AuthContextProvider";
+import { AddIcon } from "@chakra-ui/icons";
 
 const TaskHeader = (props) => {
   const { user } = useStore();
+
+  const todayDate = new Date().toDateString();
 
   return (
     <Stack
@@ -12,25 +16,41 @@ const TaskHeader = (props) => {
       borderBottom="1px"
       align="center"
     >
-      <Stack direction={{ base: "column", md: "row" }}>
-        <Heading fontSize="1.3rem">Welcome back,</Heading>
-        <Text color="red.400" fontWeight="medium" fontSize={"1.5rem"}>
+      <Flex textAlign="center" direction={{ base: "column", md: "row" }}>
+        <Heading fontSize="1.3rem">Welcome back, </Heading>
+        <Heading fontSize="1.3rem" color="secondary">
           {user.name}
-        </Text>
-      </Stack>
+        </Heading>
+      </Flex>
 
-      <Button
-        w="30%"
-        paddingY={{ base: "4", md: "6" }}
-        colorScheme="twitter"
-        onClick={props.showTaskForm}
-        fontSize={{ base: "1rem", md: "1.3rem" }}
-        outlineColor="blue.400"
-      >
-        Create Task
-      </Button>
+      <Stack direction="row" alignItems="center">
+        <Heading fontSize="12px">Today : {todayDate} </Heading>
+        <Tooltip label="Create Task">
+          <Button
+            color="secondary"
+            rounded={"full"}
+            size={"sm"}
+            onClick={props.showTaskForm}
+          >
+            <AddIcon />
+          </Button>
+        </Tooltip>
+      </Stack>
     </Stack>
   );
 };
 
 export default TaskHeader;
+
+/*
+  <Tooltip label="Create Task">
+                <Button
+                  color="primary"
+                  rounded={"full"}
+                  size={"sm"}
+                  onClick={props.showTaskForm}
+                >
+                  <AddIcon />
+                </Button>
+              </Tooltip>
+*/

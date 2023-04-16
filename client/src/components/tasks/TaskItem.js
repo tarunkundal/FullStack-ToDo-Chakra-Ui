@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import {
   Flex,

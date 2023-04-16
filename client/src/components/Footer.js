@@ -1,7 +1,6 @@
 import {
   Box,
   Container,
-  Heading,
   IconButton,
   Image,
   Stack,
@@ -31,7 +30,7 @@ const Footer = () => {
         justify={{ base: "center", md: "space-around" }}
         align={{ base: "center", md: "center" }}
       >
-        <Image src={logo} alt="logo" w="50px" />
+        <Image src={logo} alt="logo" w="60px" />
 
         <Text fontWeight="medium">© 2023 Taskify.com All rights reserved</Text>
         <Stack direction={"row"} spacing={6}>

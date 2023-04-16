@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import useFetchActiveTasks from "../../hook/useFetchActiveTasks";
 import TaskItem from "./TaskItem";
 import {
@@ -28,9 +28,14 @@ const Tasks = () => {
 
       {activeTasks.length ? (
         <>
-          {activeTasks.map((task) => {
-            return <TaskItem task={task} key={task.id} />;
-          })}
+          {activeTasks.map(
+            useCallback(
+              (task) => {
+                return <TaskItem task={task} key={task.id} />;
+              },
+              [activeTasks]
+            )
+          )}
         </>
       ) : (
         <Center>

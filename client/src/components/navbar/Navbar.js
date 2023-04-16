@@ -14,6 +14,7 @@ import {
   useColorMode,
   Text,
   Image,
+  Tooltip,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -21,6 +22,7 @@ import {
   MoonIcon,
   SunIcon,
   ChevronDownIcon,
+  AddIcon,
 } from "@chakra-ui/icons";
 
 import { NavLink } from "react-router-dom";
@@ -61,7 +63,12 @@ const Navbar = () => {
               fontWeight="bold"
               textAlign={"center"}
             >
-              <Image src={Logo} rounded="xl" boxSize={58} />
+              <Image
+                src={Logo}
+                display={{ base: "none", md: "block" }}
+                rounded="xl"
+                boxSize={50}
+              />
             </Text>
 
             <HStack
@@ -69,11 +76,16 @@ const Navbar = () => {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              <NavLink to={"/"}>
-                <i className="fa-solid fa-house" />
-              </NavLink>
-
-              <NavLink to="/tasks">Tasks</NavLink>
+              <Box p="3px" _hover={{ color: "gray.500" }}>
+                <NavLink to={"/"}>
+                  <i className="fa-solid fa-house" />
+                </NavLink>
+              </Box>
+              <Box p="3px" _hover={{ color: "gray.500" }}>
+                <NavLink to="/tasks">
+                  <i className="fa-solid fa-list-check" />
+                </NavLink>
+              </Box>
             </HStack>
           </HStack>
 
@@ -84,7 +96,6 @@ const Navbar = () => {
                 rounded={"full"}
                 size={"sm"}
                 mx={"5px"}
-                variant="outline"
               >
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>

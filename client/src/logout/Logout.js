@@ -4,6 +4,7 @@ import {
   Button,
   CloseButton,
   Flex,
+  Heading,
   Spinner,
   Stack,
   Text,
@@ -62,11 +63,14 @@ const Logout = (props) => {
         bg={useColorModeValue("gray.50", "gray.700")}
       >
         <Flex align="center" justifyContent="space-between">
-          <Text>{user.name}</Text>
-          <CloseButton onClick={props.onClose} />
+          <Heading fontSize="1.2rem">{user.name}</Heading>
+          <CloseButton
+            _hover={{ bgColor: "secondary", color: "white" }}
+            onClick={props.onClose}
+          />
         </Flex>
 
-        <Text fontWeight="medium" mb="2">
+        <Text color="secondary" fontWeight="medium" mb="2">
           Are you sure. You want to log out !
         </Text>
 
@@ -74,7 +78,7 @@ const Logout = (props) => {
           <Button w="50%" onClick={props.onClose}>
             Close
           </Button>
-          <Button w="50%" colorScheme="red" onClick={logoutHandler}>
+          <Button w="50%" variant="secondary" onClick={logoutHandler}>
             {isLoading ? <Spinner /> : "Logout"}
           </Button>
         </Stack>

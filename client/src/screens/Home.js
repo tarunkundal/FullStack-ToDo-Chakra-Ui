@@ -73,9 +73,7 @@ const Home = () => {
                 size={"lg"}
                 fontWeight={"normal"}
                 px={6}
-                colorScheme={"red"}
-                bg={"red.400"}
-                _hover={{ bg: "red.500" }}
+                variant="custom"
               >
                 <Link to={"/tasks"}>Get started</Link>
               </Button>
@@ -83,7 +81,7 @@ const Home = () => {
                 rounded={"full"}
                 size={"lg"}
                 fontWeight={"normal"}
-                colorScheme="linkedin"
+                variant="primary"
                 px={6}
                 onClick={openTaskHandler}
               >
@@ -109,7 +107,7 @@ const Home = () => {
               position={"absolute"}
               left={0}
               mt={{ base: "10" }}
-              color={useColorModeValue("red.50", "red.400")}
+              // color={useColorModeValue("red.50", "red.400")}
             />
           </Flex>
         </Stack>

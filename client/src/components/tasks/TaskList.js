@@ -9,6 +9,7 @@ import useFetch from "../../hook/useFetch";
 import ActiveTasks from "./ActiveTasks";
 import CompletedTasks from "./CompletedTasks";
 import DueTasks from "./DueTasks";
+import Navbar from "../navbar/Navbar";
 
 const TaskList = () => {
   const { user } = useStore();
