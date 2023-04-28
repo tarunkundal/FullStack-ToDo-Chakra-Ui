@@ -52,7 +52,7 @@ const Signup = () => {
       name: enteredName,
       email: enteredEmail,
       password: enteredPassword,
-      created_at: new Date().toLocaleDateString(),
+      created_at: new Date().toDateString(),
     };
 
     const { name, email, password, created_at } = userData;
@@ -79,6 +79,7 @@ const Signup = () => {
     setIsLoading(false);
 
     const data = await response.json();
+    console.log(data);
 
     if (response.status !== 201) {
       toast({

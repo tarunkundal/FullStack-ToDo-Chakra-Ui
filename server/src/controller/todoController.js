@@ -23,7 +23,7 @@ const newTodo = async (req, res, next) => {
 };
 
 // get todos by user_email
-const allTodos = async (req, res, next) => {
+const allTodos = async (req, res) => {
   try {
     const { user_email } = req.params;
 
@@ -43,7 +43,7 @@ const allTodos = async (req, res, next) => {
 };
 
 // update
-const updateTodo = async (req, res, next) => {
+const updateTodo = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, updated_at, duedate, description } = req.body;

@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // for new registration
-const register = async (req, res, next) => {
+const register = async (req, res) => {
   try {
     const { email, password, created_at, name } = req.body;
 
@@ -23,13 +23,7 @@ const register = async (req, res, next) => {
     // password hashing
     const hashed_password = await bcrypt.hash(password.toString(), 10);
 
-    // // generating auth token
-    // const token = jwt.sign({ email }, process.env.SECRET_KEY);
-
-    // // storing into cookie
-    // res.cookie("Auth_Token", token, { httpOnly: true });
-
-    const newUser = await pool.query(
+    await pool.query(
       `INSERT INTO users (email, hashed_password, created_at,name) VALUES ($1,$2,$3,$4)  `,
       [email, hashed_password, created_at, name]
     );
@@ -41,7 +35,7 @@ const register = async (req, res, next) => {
 };
 
 // For login
-const login = async (req, res, next) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -86,7 +80,7 @@ const login = async (req, res, next) => {
 };
 
 // signout
-const signout = async (req, res, next) => {
+const signout = async (req, res) => {
   try {
     // console.log(req.user);
     res.clearCookie("Auth_Token");

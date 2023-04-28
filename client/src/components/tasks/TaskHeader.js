@@ -24,17 +24,20 @@ const TaskHeader = (props) => {
       </Flex>
 
       <Stack direction="row" alignItems="center">
-        <Heading fontSize="12px">Today : {todayDate} </Heading>
         <Tooltip label="Create Task">
           <Button
-            color="secondary"
-            rounded={"full"}
-            size={"sm"}
+            color="primary"
+            rounded="lg"
             onClick={props.showTaskForm}
+            size="sm"
           >
-            <AddIcon />
+            <AddIcon fontSize="lg" />
           </Button>
         </Tooltip>
+
+        <Heading fontSize="12px" color="primary">
+          <Text color="secondary"> Today :</Text> {todayDate}
+        </Heading>
       </Stack>
     </Stack>
   );

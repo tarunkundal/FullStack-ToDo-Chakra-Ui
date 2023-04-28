@@ -17,9 +17,9 @@ const Footer = () => {
       borderTopColor={"gray"}
       bg={useColorModeValue("gray.50", "gray.700")}
       color={useColorModeValue("gray.700", "gray.200")}
-      mb={0}
+      mt={"5rem"}
+      // mb={0}
       width={"100%"}
-      bottom=" 0vh"
     >
       <Container
         as={Stack}

@@ -10,6 +10,7 @@ import {
   useColorModeValue,
   WrapItem,
   Flex,
+  CloseButton,
 } from "@chakra-ui/react";
 import { useCallback, useState } from "react";
 import EditUserProfile from "./EditUserProfile";
@@ -137,10 +138,9 @@ const UserProfile = () => {
             <Button
               fontSize={"sm"}
               rounded={"full"}
-              colorScheme="red"
-              boxShadow={"0px 1px 8px -2px rgb(238,221,130)"}
               w="50%"
               onClick={() => history.push("/")}
+              variant="secondary"
             >
               Back To Home
             </Button>
