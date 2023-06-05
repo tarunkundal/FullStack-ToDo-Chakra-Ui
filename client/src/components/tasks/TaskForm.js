@@ -181,10 +181,24 @@ const TaskForm = (props) => {
           </FormControl>
 
           <Stack direction={"row"} pt={4}>
-            <Button w="50%" onClick={props.onClose} colorScheme="red">
+            <Button
+              w="50%"
+              onClick={props.onClose}
+              colorScheme="red"
+              color={"white"}
+              bg={"secondary"}
+              _hover={{ bg: "secondary2" }}
+            >
               {isUpdate ? "Cancle Update" : "Cancle"}
             </Button>
-            <Button w="50%" colorScheme="twitter" type="submit">
+            <Button
+              w="50%"
+              colorScheme="twitter"
+              color={"white"}
+              type="submit"
+              bg={"primary"}
+              _hover={{ bg: "primary2" }}
+            >
               {isLoading ? (
                 <Spinner />
               ) : (

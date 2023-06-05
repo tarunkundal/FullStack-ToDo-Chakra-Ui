@@ -178,7 +178,12 @@ const Signup = () => {
                   />
                 </FormControl>
                 <Stack spacing={10} pt={1}>
-                  <Button py="6" type="submit" colorScheme="twitter">
+                  <Button
+                    py="6"
+                    type="submit"
+                    variant={"solid"}
+                    colorScheme="twitter"
+                  >
                     {isLoading ? <Spinner /> : "Sign Up"}
                   </Button>
                 </Stack>

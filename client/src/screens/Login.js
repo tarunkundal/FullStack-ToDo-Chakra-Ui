@@ -109,7 +109,7 @@ const Login = () => {
             </Heading>
 
             <form onSubmit={formSubmitHandler}>
-              <FormControl>
+              <FormControl isRequired>
                 <Stack spacing="6">
                   <Box>
                     <FormLabel id="email">Email address</FormLabel>
@@ -133,7 +133,12 @@ const Login = () => {
                     />
                   </Box>
 
-                  <Button type="submit" colorScheme={"blue"} variant={"solid"}>
+                  <Button
+                    type="submit"
+                    colorScheme={"twitter"}
+                    variant={"solid"}
+                    py={6}
+                  >
                     {isLoading ? <Spinner /> : "Sign in"}
                   </Button>
                 </Stack>

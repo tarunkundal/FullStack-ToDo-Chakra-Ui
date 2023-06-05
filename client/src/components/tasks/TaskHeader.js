@@ -30,6 +30,7 @@ const TaskHeader = (props) => {
             rounded="lg"
             onClick={props.showTaskForm}
             size="sm"
+            _hover={{ color: "primary2" }}
           >
             <AddIcon fontSize="lg" />
           </Button>

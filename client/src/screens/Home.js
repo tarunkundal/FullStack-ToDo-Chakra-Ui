@@ -6,7 +6,6 @@ import {
   Text,
   Button,
   Image,
-  createIcon,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -54,7 +53,7 @@ const Home = () => {
               </Text>
             </Heading>
             <Text color={"gray.500"}>
-              <Text as={"span"} color={"red.500"}>
+              <Text as={"span"} color={"custom"}>
                 Taskify ,
               </Text>
               offer a way to increase productivity, stopping you from forgetting
@@ -73,7 +72,9 @@ const Home = () => {
                 size={"lg"}
                 fontWeight={"normal"}
                 px={6}
-                variant="custom"
+                color={"white"}
+                bg={"secondary2"}
+                _hover={{ bg: "secondary" }}
               >
                 <Link to={"/tasks"}>Get started</Link>
               </Button>
@@ -81,9 +82,11 @@ const Home = () => {
                 rounded={"full"}
                 size={"lg"}
                 fontWeight={"normal"}
-                variant="primary"
                 px={6}
+                color={"white"}
                 onClick={openTaskHandler}
+                bg={"primary"}
+                _hover={{ bg: "primary2" }}
               >
                 Create Task
               </Button>
@@ -107,7 +110,6 @@ const Home = () => {
               position={"absolute"}
               left={0}
               mt={{ base: "10" }}
-              // color={useColorModeValue("red.50", "red.400")}
             />
           </Flex>
         </Stack>
